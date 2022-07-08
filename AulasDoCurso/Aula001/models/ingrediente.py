@@ -3,13 +3,12 @@ from datetime import datetime
 from models.model_base import ModelBase
 
 
-class TipoPicole(ModelBase):
-
-    __tablename__ = 'tipos_picole'
+class Ingrediente(ModelBase):
+    __tablename__ = "ingrediente"
 
     id: int = sqlalchemy.Column(sqlalchemy.BigInteger, primary_key=True, autoincrement=True)
-    data_criacao: datetime = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.now(), index=True)
+    data_criaco: datetime = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.now(), index=True)
     nome: str = sqlalchemy.Column(sqlalchemy.String(45), unique=True, nullable=False)
 
-    def __repr__(self):
-        return f'<Tipo de Picole: {self.nome}>'
+    def __repr__(self) -> str:
+        return f'<Ingrediente: {self.nome}>'
