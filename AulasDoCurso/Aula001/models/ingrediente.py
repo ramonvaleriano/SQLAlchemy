@@ -4,7 +4,7 @@ from models.model_base import ModelBase
 
 
 class Ingrediente(ModelBase):
-    __tablename__ = "ingrediente"
+    __tablename__ = "ingredientes"
 
     id: int = sqlalchemy.Column(sqlalchemy.BigInteger, primary_key=True, autoincrement=True)
     data_criaco: datetime = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.now(), index=True)

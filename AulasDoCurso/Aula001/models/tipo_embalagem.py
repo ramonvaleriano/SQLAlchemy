@@ -4,7 +4,7 @@ from models.model_base import ModelBase
 
 
 class TipoEmbalagem(ModelBase):
-    __tablename__ = 'tipos_embalagens'
+    __tablename__ = 'tipos_embalagem'
 
     id: int = sqlalchemy.Column(sqlalchemy.BigInteger, primary_key=True, autoincrement=True)
     data_criacao: datetime = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.now(), index=True)

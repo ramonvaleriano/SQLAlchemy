@@ -12,10 +12,9 @@ class Lote(ModelBase):
     data_criacao: datetime = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.now(), index=True)
 
     id_tipo_picole: int = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey('tipos_picole.id'))  # tabela.campo
-    tipo_picole: TipoPicole = orm.relationship('TipoPicole', lazy='joined')  # Configuração interna do
-                                                                             # SQLAlchemy
+    tipo_picole: TipoPicole = orm.relationship('TipoPicole', lazy='joined')  # Configuração interna do SQLAlchemy
 
     quantidade: int = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)
 
-    def __repr__(self) -> int:
+    def __repr__(self) -> str:
         return f'<Lotes: {self.id}>'
