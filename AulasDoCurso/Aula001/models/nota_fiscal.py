@@ -8,7 +8,7 @@ from models.revendedor import Revendedor
 
 
 # Uma nota fiscal pode ter vários lotes
-lotes_nota_fiscal = sqlalchemy.table(
+lotes_nota_fiscal = sqlalchemy.Table(
     'lotes_nota_fiscal',
     ModelBase.metadata,
     sqlalchemy.Column('id_nota_fiscal', sqlalchemy.Integer, sqlalchemy.ForeignKey('notas_fiscais.id')),
