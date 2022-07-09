@@ -1,7 +1,7 @@
 import sqlalchemy
 from pathlib import Path
 from typing import Optional
-from model.model_base import BaseModel
+from model.model_base import ModelBase
 from sqlalchemy.future.engine import Engine
 from sqlalchemy.orm import Session, sessionmaker
 
@@ -45,6 +45,6 @@ def create_tables() -> None:
     if not __engine:
         create_engine()
 
-    BaseModel.metadata.drop_all(__engine)
-    BaseModel.metadata.create_all(__engine)
+    ModelBase.metadata.drop_all(__engine)
+    ModelBase.metadata.create_all(__engine)
 
