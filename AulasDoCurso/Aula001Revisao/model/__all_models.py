@@ -3,3 +3,8 @@ from model.conservante import Conservante
 from model.ingrediente import Ingrediente
 from model.revendedor import Revendedor
 from model.sabor import Sabor
+from model.tipo_embalagem import TipoEmbalagem
+from model.tipo_picole import TipoPicole
+from model.lote import Lote
+from model.notal_fiscal import NotaFiscal
+from model.picole import Picole
