@@ -23,7 +23,7 @@ class NotaFiscal(ModelBase):
     data_criacao: datetime = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.now(), index=True)
     valor: float = sqlalchemy.Column(sqlalchemy.DECIMAL(8,2), nullable=False)
     numero_serie: str = sqlalchemy.Column(sqlalchemy.String(45), unique=True, nullable=False)
-    description: str = sqlalchemy.Column(sqlalchemy.String(200), nullable=False)
+    descricao: str = sqlalchemy.Column(sqlalchemy.String(200), nullable=False)
 
     id_revendedor: int = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey('revendedores.id'))  # Tabela.Campo
     revendedor: Revendedor = orm.relationship('Revendedor', lazy='joined')  # Configuração interna do SQLAlchemy

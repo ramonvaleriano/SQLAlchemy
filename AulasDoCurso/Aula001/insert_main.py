@@ -182,11 +182,11 @@ def insert_picole() -> Picole:
     ingrediente1 = insert_ingrediente()
     picole.ingredientes.append(ingrediente1)
 
-    """conservantes = insert_conservante()
+    conservantes = insert_conservante()
     picole.conservantes.append(conservantes)
 
     aditivos_nutritivos = insert_aditivo_nutritivo()
-    picole.aditivos_nutritivos.append(aditivos_nutritivos)"""
+    picole.aditivos_nutritivos.append(aditivos_nutritivos)
 
     with create_session() as session:
         session.add(picole)
@@ -196,7 +196,7 @@ def insert_picole() -> Picole:
 
 
 if __name__ == '__main__':
-    """#  Adicionar Aditivo Nutritivo
+    #  Adicionar Aditivo Nutritivo
     insert_aditivo_nutritivo()
 
     #  Adicionar Conservante
@@ -221,7 +221,7 @@ if __name__ == '__main__':
     result_lote = insert_lote()
 
     #  Adicionando Nota Fiscal
-    result_nota_fiscal = insert_nota_fiscal()"""
+    result_nota_fiscal = insert_nota_fiscal()
 
     #  Adicionando Picole
     result_picole = insert_picole()
