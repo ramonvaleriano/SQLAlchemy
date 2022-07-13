@@ -61,7 +61,8 @@ def insert_ingrediente() -> None:
     print(f'Nome: {ing.nome}')
 
 
-def insert_revendedor() -> None:
+#  Adicionar Revendedor
+def insert_revendedor() -> Revendedor:
     print('Cadastro de um Revendedor')
 
     cnpj: str = str(input('Digite o cnpj do revendedor'))
@@ -74,11 +75,10 @@ def insert_revendedor() -> None:
         session.add(reven)
         session.commit()
 
-    print('Revendedor adicionado com sucesso')
-    print(f'CNPJ: {reven.cnpj}')
-    print(f'Razão Social: {reven.razao_social}')
+    return reven
 
 
+#  Adicionar Sabor
 def insert_sabor() -> None:
     print('Cadastro de um Sabor')
 
@@ -94,6 +94,7 @@ def insert_sabor() -> None:
     print(f'Nome: {sab.nome}')
 
 
+#  Adicionar tipo de embalagem
 def insert_tipo_embalagem() -> None:
     print('Cadastro do tipo de embalagem: ')
 
@@ -109,6 +110,7 @@ def insert_tipo_embalagem() -> None:
     print(f'NOme: {tde.nome}')
 
 
+#  Adicionar tipo de picole
 def insert_tipo_picole() -> None:
     print('Cadastro de Tipo de Picole: ')
 
