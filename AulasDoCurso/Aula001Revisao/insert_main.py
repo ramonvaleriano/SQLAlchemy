@@ -174,7 +174,7 @@ if __name__ == '__main__':
     result_tipo_picole = insert_tipo_de_picole()
     result_lote = insert_lote()
     result_nota_fiscal = insert_nota_fiscal()
-    """
     result_picole = insert_picole()
-    print(result_picole)
+    """
+
 

@@ -3,18 +3,18 @@ from time import sleep
 from tqdm import tqdm  # pip install tqdm
 from sqlalchemy.orm import Session
 
-from conf.helpers import gerar_string, gerar_int, gerar_float, gerar_cor
-from conf.db_session import create_session
-from models.aditivo_nutritivo import AditivoNutritivo
-from models.sabor import Sabor
-from models.tipo_embalagem import TipoEmbalagem
-from models.tipos_picole import TipoPicole
-from models.ingrediente import Ingrediente
-from models.conservante import Conservante
-from models.revendedor import Revendedor
-from models.lote import Lote
-from models.nota_fiscal import NotaFiscal
-from models.picole import Picole
+from config.helpers import gerar_string, gerar_int, gerar_float, gerar_cor
+from config.db_session import create_session
+from model.aditivo_nutritivo import AditivoNutritivo
+from model.sabor import Sabor
+from model.tipo_embalagem import TipoEmbalagem
+from model.tipo_picole import TipoPicole
+from model.ingrediente import Ingrediente
+from model.conservante import Conservante
+from model.revendedor import Revendedor
+from model.lote import Lote
+from model.notal_fiscal import NotaFiscal
+from model.picole import Picole
 
 
 # 1) Aditivos Nutritivos
