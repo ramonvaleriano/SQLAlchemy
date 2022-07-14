@@ -1,8 +1,11 @@
+from model.lote import Lote
 from model.sabor import Sabor
+from model.picole import Picole
 from model.revendedor import Revendedor
 from model.tipo_picole import TipoPicole
 from model.conservante import Conservante
 from model.ingrediente import Ingrediente
+from model.notal_fiscal import NotaFiscal
 from config.db_session import create_session
 from model.tipo_embalagem import TipoEmbalagem
 from model.aditivo_nutritivo import AditivoNutritivo
@@ -96,6 +99,70 @@ def insert_tipo_de_picole() -> TipoPicole:
     return tp
 
 
+def insert_lote() -> Lote:
+
+    id_tipo_picole: int = int(input('Digite id do tipo de picole: '))
+    quantidade: int = int(input('Digite a quantidade de picoles: '))
+
+    lot: Lote = Lote(id_tipo_picole=id_tipo_picole, quantidade=quantidade)
+
+    with create_session() as session:
+        session.add(lot)
+        session.commit()
+
+    return lot
+
+
+def insert_nota_fiscal() -> NotaFiscal:
+    valor: float = float(input('Digite o valor da nota fiscal: '))
+    numero_serie: str = str(input('Digite agora o número de série da nota fiscal: '))
+    descricao: str = str(input('Digite a descrição da Nota fiscal: '))
+    id_revendedor: int = int(input('Digite o ID do revendedor: '))
+
+    ntf: NotaFiscal = NotaFiscal(
+        valor=valor,
+        numero_serie=numero_serie,
+        descricao=descricao,
+        id_revendedor=id_revendedor
+    )
+
+    lotes_ = insert_lote()
+    ntf.lotes.append(lotes_)
+
+    with create_session() as session:
+        session.add(ntf)
+        session.commit()
+
+    return ntf
+
+
+def insert_picole() -> Picole:
+    preco: float = float(input('Digite o preço do picole: '))
+    id_sabor: int = int(input('Digite o ID do sabor: '))
+    id_tipo_embalagem: int = int(input('Digite o ID do tipo de embalagem: '))
+    id_tipo_picole: int = int(input('Digite o ID do tipo de picole: '))
+
+    ingredientes = insert_ingrediente()
+    conservantes = insert_conservante()
+    aditivos_nutritivos = insert_aditivo_nutritivo()
+
+    pic: Picole = Picole(
+        preco=preco,
+        id_sabor=id_sabor,
+        id_tipo_embalagem=id_tipo_embalagem,
+        id_tipo_picole=id_tipo_picole,
+    )
+    pic.ingredientes.append(ingredientes)
+    pic.conservantes.append(conservantes)
+    pic.aditivos_nutritivos.append(aditivos_nutritivos)
+
+    with create_session() as session:
+        session.add(pic)
+        session.commit()
+
+    return pic
+
+
 if __name__ == '__main__':
     """
     result_aditivo_nutritivo = insert_aditivo_nutritivo()
@@ -105,5 +172,9 @@ if __name__ == '__main__':
     result_sabor = insert_sabor()
     result_tipo_embalagem = insert_tipo_embalagem()
     result_tipo_picole = insert_tipo_de_picole()
+    result_lote = insert_lote()
+    result_nota_fiscal = insert_nota_fiscal()
     """
+    result_picole = insert_picole()
+    print(result_picole)
 

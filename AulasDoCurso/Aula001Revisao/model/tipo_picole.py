@@ -10,5 +10,5 @@ class TipoPicole(ModelBase):
     data_criacao: datetime = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.now(), index=True)
     nome: str = sqlalchemy.Column(sqlalchemy.String(45), unique=True, nullable=False)
 
-    def __repr__(self) -> str:
-        return f'<Tipo de Picole: {self.nome}>'
+    def __repr__(self):
+        return f'<Tipos de Picole: {self.nome}>'
