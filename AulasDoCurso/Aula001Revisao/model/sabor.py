@@ -4,7 +4,7 @@ from model.model_base import ModelBase
 
 
 class Sabor(ModelBase):
-    __tablename__ = 'Sabores'
+    __tablename__ = 'sabores'
 
     id: int = sqlalchemy.Column(sqlalchemy.BigInteger, primary_key=True, autoincrement=True)
     data_criacao: datetime = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.now(), index=True)
