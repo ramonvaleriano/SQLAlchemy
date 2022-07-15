@@ -42,12 +42,12 @@ def create_engine(sqlite: bool = False) -> Engine:
         folder = Path(arquivo_db).parent
         folder.mkdir(parents=True, exist_ok=True)
         conn_str = f'sqlite:///{arquivo_db}'  # String de conexão
-        __engine = sqlalchemy.create_engine(url=conn_str, echo=True, connect_args={"check_same_thread": False})
+        __engine = sqlalchemy.create_engine(url=conn_str, echo=False, connect_args={"check_same_thread": False})
 
     else:
         # Caso venhamos a usar o PostgreSQL
         conn_str = 'postgresql://postgres:*****@localhost:5432/picoles'
-        __engine = sqlalchemy.create_engine(url=conn_str, echo=True)
+        __engine = sqlalchemy.create_engine(url=conn_str, echo=False)
 
     return __engine
 
