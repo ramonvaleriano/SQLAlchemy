@@ -14,5 +14,17 @@ def delete_picole(id_picole: int) -> None:
             print('Não existe o picole desejado!')
 
 
+def delete_revendedor(id_revendedor: int) -> None:
+    with create_session() as session:
+        revendedor: Optional[Revendedor] = session.query(Revendedor).filter(Revendedor.id == id_revendedor).one_or_none()
+        if revendedor:
+            session.delete(revendedor)
+            session.commit()
+        else:
+            print('Não existe o revendedor desejado!')
+
+
 if __name__ == '__main__':
-    delete_picole(2)
+    #delete_picole(2)
+    #delete_revendedor(22)
+    print('Deletando dados')

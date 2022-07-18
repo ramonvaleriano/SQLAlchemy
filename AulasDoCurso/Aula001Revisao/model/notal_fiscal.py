@@ -25,8 +25,9 @@ class NotaFiscal(ModelBase):
     numero_serie: str = sqlalchemy.Column(sqlalchemy.String(45), unique=True, nullable=False)
     descricao: str = sqlalchemy.Column(sqlalchemy.String(200), nullable=False)
 
-    id_revendedor: int = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey('revendedores.id'))
-    revendedor: Revendedor = orm.relationship('Revendedor', lazy='joined')
+    id_revendedor: int = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey(
+        'revendedores.id', ondelete='CASCADE'))
+    revendedor: Revendedor = orm.relationship('Revendedor', lazy='joined', cascade='delete')
 
     #  Uma nota fiscal pode conter vários lotes, e um lote está ligado a uma nota fiscal
     lotes: List[Lote] = orm.relationship('Lote', secondary=lotes_nota_fiscal, backref='lote', lazy='dynamic')
